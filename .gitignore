@@ -1,0 +1,4 @@
+# not sensitive data, but metadata and not required
+
+*.log
+*.txt
