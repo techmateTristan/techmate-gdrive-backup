@@ -1,0 +1,252 @@
+<html>
+<head>
+  <title>Techmate-Backup-Guide</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 100%;
+      font-weight: bold;
+
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="techmate-backup-guide-2022">Techmate Backup Guide 2022</h1>
+ceated by: Tristan Garside | tristan@techmate.org.nz<br/> date: 19-08-2022
+<hr/>
+<h2 id="introduction">Introduction</h2>
+<p>The Backup scripts used in this project rely on three main utility programs:</p>
+<ol>
+  <li><a href="https://rclone.org">rclone</a> - for transferring data from cloud to local storage</li>
+  <li><a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles/">cron</a> - scheduling 
+    the running of scripts
+  <li><a href="https://wiki.archlinux.org/title/SSMTP">ssmtp</a> - for automating 
+    an email summary of the status</p></li>
+</ol>
+<p>There are two main BASH scripts that do the heavy lifting in the project currently located in the folder
+   <code>/home/josh/rclone</code> on the Fedora Linux Server:</p>
+<ol>
+  <li><code>google-drive-backup.sh</code></li>
+  <li><code>email-composer.sh</code></p></li>
+</ol>
+<p>The <code>micro</code> text editor is installed for ease of use (standard microsoft shortcuts) but any
+   editor can be used to edit scripts / text files e.g.</p>
+<code>$ micro google-drive-backup.sh</code><br/> <code>$ nano google-drive-backup.sh</code> <br/> etc.
+<hr>
+<h2 id="use-case">Use Case</h2>
+<p>All files that are saved in Google-Drive (currently in Josh’s account) need to backed up to the
+   on-site server to protect from accidental deletion / loss / corruption etc.</p>
+<p>An <code>rclone copy</code> of all the data is transferred daily at ascheduled time.</p>
+<p>Periodically (e.g. every 3 months) an <code>rclone sync</code> operation may be performed
+   to clear out deleted files / junk files that have been removed from the master copy (The Google Drive)</p>
+<p>File(s) can be recovered from the backup by several methods (see below)</p>
+<hr>
+<h2 id="installation-and-configuration-of-utilities">Installation and Configuration of Utilities</h2>
+<h2 id="rclone"><a href="https://rclone.org">rclone</a></h2>
+<h3 id="installation">Installation</h3>
+<p>The version currently installed is from the Fedora Linux repository and installed by running <code>sudo dnf install rclone</code></p>
+<h3 id="configuration">Configuration</h3>
+<p>The setup of rclone with Google Drive is done by a simple wizard in the terminal: https://rclone.org/drive/</p>
+<p>NB If the server is headless (currently true) then providing access with Google a/c credentials requires selecting <br/></p>
+<p><code>Use auto config? No</code><br/></p>
+<p>and accessing the provided URL from a machine with a browser</p>
+<h3 id="usage">Usage</h3>
+<p>The two commands employed are:</p>
+<ol>
+  <li><code>rclone copy</code> - transfers all files from SOURCE to DESTINATION and preserves all
+     previously transferred files regardless of if they still exist at SOURCE
+  </li>
+  <li><code>rclone sync</code> - transfers all files from SOURCE to DESTINATION, deleting any files
+     in DESTINATION that do not exist in SOURCE - i.e. an exact mirror version.
+  </li>    
+</ol><p>The <code>google-drive-backup.sh</code> script also provides a couple of options to supply verbose output and write errors with <code>rclone</code> to a log</p>
+https://rclone.org
+<hr>
+<h2 id="cron"><a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles/">cron</a></h2>
+<p>Intallation: This utility is included as a standard program in GNU/Linux</p>
+<p>The scheduling “table” can be edited by running<br/> <code>$ crontab -e</code></p>
+<p>The table can be viewed without editing by<br/> <code>$ crontab -l</code></p>
+<p>N.B. each user on the server may have their own crontab - to edit the correct crontab you will need to be logged in as <code>josh</code></p>
+https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles
+<hr>
+<h2 id="ssmtp"><a href="https://wiki.archlinux.org/title/SSMTP">ssmtp</a></h2>
+<p>This utility is a very simple program that can only send email. This avoids the configuration headaches associated with <code>postfix</code> (or <code>sendmail</code>)</p>
+<p>NB <em>This project is unmaintaned - may need replacing with alternative</em><br />
+<h3>Installation</h3>
+<p><code>$ sudo dnf install ssmtp</code></p>
+<h3 id="configuration-1">Configuration</h3>
+<p><code>ssmtp</code> allows you to send the automated email from you GMail with the correct authentication.
+   However your regular password cannot be used. From May 2022 Google requires that you create an “App Password”:</p>
+<p>https://www.lifewire.com/get-a-password-to-access-gmail-by-pop-imap-2-1171882</p>
+<p>The username and password need to be accessed from the config file at <code>/etc/ssmtp/ssmtp.config</code>.
+   The following entries seem to work:</p>
+<p><code>root=postmaster</code><br/>
+   <code>mailhub=smtp.gmail.com:587</code><br/>
+   <code>AuthUser=example@techmate.org.nz</code><br/>
+   <code>AuthPass=&lt;example's App password here&gt;</code><br/>
+   <code>UseTLS=Yes</code><br/> <code>UseSTARTTLS</code><br/></p>
+<p>The entry in the crontab needs to include the MAILTO line.</p>
+<hr>
+<h2 id="source-files-and-recovery-migration-of-project">Source Files and Recovery / Migration of Project</h2>
+<p>This document should have enough detail to set up the preject again on a different GNU/Linux machine.</p>
+<p>The project can be cloned into the Admin Users home folder with git:<br/> <code>$ git clone ...</code></p>
+<p>All the files required are located in the directory <code>/home/josh/rclone</code>. Included is a backup / reference file <code>crontab.bak</code> which can be pasted into new table using <code>$ crontab -e</code></p>
+<hr>
+<p><br/></p>
+<h1 id="backup-recovery-options">Backup Recovery Options</h1>
+<p>These instructions are specific to our tools in 2022 but can be applied more generally too.<br/> Here are a few options:</p>
+<h2 id="quick-and-elegant---copy-over-local-network">Quick and Elegant - copy over local network</h2>
+<p>Simply reverse SOURCE and DESTINATION order using rclone</p>
+<p>Recover to Google-Drive *need to test:<br/> <code>$ rclone copy --progress /home/josh/Google-Drive-Backup/ google-drive</code></p>
+<p>Or to machine on local network *need to test<br/> <code>$ rclone copy --progress /home/josh/Google-Drive-Backup/ host:/&lt;path-to-folder&gt;</code></p>
+<h2 id="quick-and-dirty---copy-backup-to-external-hdd">Quick and Dirty - Copy Backup to external HDD</h2>
+<ol type="1">
+<li>plug in “Big Red” external HDD drive</li>
+<li><code>ssh</code> into <code>/home/josh</code><br />
+</li>
+<li>double check which device ID Big Red has<br/> <code>$ lsblk</code> and identify by size - 1.8T- (currently <code>/dev/sdc1</code>)</li>
+<li>Mount drive:<br/> <code>$ sudo mount /dev/sdc1 /home/josh/big-red-mountpoint</code></li>
+<li>copy drive contents over<br/> <code>$ rsync -arv  --progress Google-Drive-Backup/* big-red-mountpoint</code></li>
+<li>For extra safety<br/> <code>$ sudo umount /dev/sdc1</code> before unplugging Big Red HDD</li>
+</ol>
+<h2 id="last-resort">Last Resort</h2>
+Shutdown server, unplug and remove internal HDD “WDC” brand to access via recovery rig. Filesystem is ext4 so easiest to access via Linux machine.
+<hr>
+</body>
+</html>
