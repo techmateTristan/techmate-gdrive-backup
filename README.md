@@ -140,10 +140,10 @@ Here are a few options:
 
 Simply reverse SOURCE and DESTINATION order using rclone
 
-Recover to Google-Drive \*need to test:  
+Recover to Google-Drive:  
 `$ rclone copy --progress /home/josh/Google-Drive-Backup/ google-drive`
 
-Or to machine on local network \*need to test  
+Or to machine on local network  
 `$ rclone copy --progress /home/josh/Google-Drive-Backup/ host:/<path-to-folder>`
 
 ## Quick and Dirty - Copy Backup to external HDD
