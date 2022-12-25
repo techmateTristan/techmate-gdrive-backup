@@ -7,7 +7,6 @@ date: 19-08-2022
 * * *
 
 Introduction
-------------
 
 The Backup scripts used in this project rely on three main utility programs:
 
@@ -31,7 +30,6 @@ etc.
 * * *
 
 Use Case
---------
 
 All files that are saved in Google-Drive (currently in Josh’s account) need to backed up to the on-site server to protect from accidental deletion / loss / corruption etc.
 
@@ -44,10 +42,8 @@ File(s) can be recovered from the backup by several methods (see below)
 * * *
 
 Installation and Configuration of Utilities
--------------------------------------------
 
 [rclone](https://rclone.org)
-----------------------------
 
 ### Installation
 
@@ -77,7 +73,6 @@ https://rclone.org
 * * *
 
 [cron](https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles/)
-----------------------------------------------------------------------------
 
 Intallation: This utility is included as a standard program in GNU/Linux
 
@@ -94,7 +89,6 @@ https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles
 * * *
 
 [ssmtp](https://wiki.archlinux.org/title/SSMTP)
------------------------------------------------
 
 This utility is a very simple email server that can only send email. This avoids the configuration headaches associated with `postfix` or `sendmail`
 
@@ -125,7 +119,6 @@ The entry in the crontab needs to include the MAILTO line.
 * * *
 
 Source Files and Recovery / Migration of Project
-------------------------------------------------
 
 This document should have enough detail to set up the preject again on a different GNU/Linux machine.
 
@@ -146,7 +139,6 @@ These instructions are specific to our tools in 2022 but can be applied more gen
 Here are a few options:
 
 Quick and Elegant - copy over local network
--------------------------------------------
 
 Simply reverse SOURCE and DESTINATION order using rclone
 
@@ -157,7 +149,6 @@ Or to machine on local network \*need to test
 `$ rclone copy --progress /home/josh/Google-Drive-Backup/ host:/<path-to-folder>`
 
 Quick and Dirty - Copy Backup to external HDD
----------------------------------------------
 
 1.  plug in “Big Red” external HDD drive
 2.  `ssh` into `/home/josh`  
@@ -172,7 +163,6 @@ Quick and Dirty - Copy Backup to external HDD
     `$ sudo umount /dev/sdc1` before unplugging Big Red HDD
 
 Last Resort
------------
 
 Shutdown server, unplug and remove internal HDD “WDC” brand to access via recovery rig. Filesystem is ext4 so easiest to access via Linux machine.
 
