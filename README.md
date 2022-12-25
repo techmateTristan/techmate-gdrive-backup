@@ -6,7 +6,7 @@ date: 19-08-2022
 
 * * *
 
-###Introduction
+### Introduction
 
 The Backup scripts used in this project rely on three main utility programs:
 
@@ -29,7 +29,7 @@ etc.
 
 * * *
 
-###Use Case
+### Use Case
 
 All files that are saved in Google-Drive (currently in Josh’s account) need to backed up to the on-site server to protect from accidental deletion / loss / corruption etc.
 
