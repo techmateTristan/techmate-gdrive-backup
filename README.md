@@ -51,7 +51,7 @@ Installation and Configuration of Utilities
 
 ### Installation
 
-The version currently installed is from the Fedora Linux repository and installed by running `sudo dnf install rclone`
+The version currently installed is from the Fedora Linux repository and was installed by running `sudo dnf install rclone`
 
 ### Configuration
 
@@ -65,12 +65,12 @@ and accessing the provided URL from a machine with a browser
 
 ### Usage
 
-The two commands employed are:
+The two commands within the backup script employed are:
 
 1.  `rclone copy` - transfers all files from SOURCE to DESTINATION and preserves all previously transferred files regardless of if they still exist at SOURCE
 2.  `rclone sync` - transfers all files from SOURCE to DESTINATION, deleting any files in DESTINATION that do not exist in SOURCE - i.e. an exact mirror version.
 
-The `google-drive-backup.sh` script also provides a couple of options to supply verbose output and write errors with `rclone` to a log
+The `google-drive-backup.sh` script also provides a couple of options to supply verbose output and write any errors with `rclone` to a log
 
 https://rclone.org
 
@@ -96,7 +96,7 @@ https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles
 [ssmtp](https://wiki.archlinux.org/title/SSMTP)
 -----------------------------------------------
 
-This utility is a very simple program that can only send email. This avoids the configuration headaches associated with `postfix` (or `sendmail`)
+This utility is a very simple email server that can only send email. This avoids the configuration headaches associated with `postfix` or `sendmail`
 
 NB _This project is unmaintaned - may need replacing with alternative_  
 
@@ -106,7 +106,8 @@ NB _This project is unmaintaned - may need replacing with alternative_
 
 ### Configuration
 
-`ssmtp` allows you to send the automated email from you GMail with the correct authentication. However your regular password cannot be used. From May 2022 Google requires that you create an “App Password”:
+`ssmtp` allows you to send the automated email from you GMail with the correct authentication. However your regular password cannot be used.
+ From May 2022 Google requires that you create an “App Password”:
 
 https://www.lifewire.com/get-a-password-to-access-gmail-by-pop-imap-2-1171882
 
@@ -114,7 +115,7 @@ The username and password need to be accessed from the config file at `/etc/ssmt
 
 `root=postmaster`  
 `mailhub=smtp.gmail.com:587`  
-`AuthUser=example@techmate.org.nz`  
+`AuthUser=<example>@techmate.org.nz`  
 `AuthPass=<example's App password here>`  
 `UseTLS=Yes`  
 `UseSTARTTLS`  
@@ -129,9 +130,10 @@ Source Files and Recovery / Migration of Project
 This document should have enough detail to set up the preject again on a different GNU/Linux machine.
 
 The project can be cloned into the Admin Users home folder with git:  
-`$ git clone ...`
+`$ git clone https://github.com/techmateTristan/techmate-gdrive-backup.git`
 
-All the files required are located in the directory `/home/josh/rclone`. Included is a backup / reference file `crontab.bak` which can be pasted into new table using `$ crontab -e`
+All the files required are located in the directory `/home/josh/rclone`. Included is a backup / reference file `crontab.bak`
+ which can be pasted into new table using `$ crontab -e`
 
 * * *
 
