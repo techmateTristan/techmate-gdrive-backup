@@ -116,7 +116,7 @@ The entry in the crontab needs to include the MAILTO line.
 
 * * *
 
-Source Files and Recovery / Migration of Project
+## Source Files and Recovery / Migration of Project
 
 This document should have enough detail to set up the preject again on a different GNU/Linux machine.
 
