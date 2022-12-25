@@ -1,0 +1,25 @@
+#  		CRON TABLE USAGE
+#
+#	*	*	*	*	*	
+#
+#	|	|	|	|	|___________ Day of Week (0-6),  0 = Sunday
+#	|	|	|	|	
+#	|	|	|	|_______________ Month of Year (1-12)
+#	|	|	|	
+#	|	|	|___________________ Day of Month (1-31)
+#	|	|		
+#	|	|_______________________ Hour (0-23)
+#	|
+#	|___________________________ Minute (0-59)
+#
+
+MAILTO=tristan@techmate.org.nz
+
+# copy every weekday at 8pm 
+0 20 * * 1,2,3,4,5 bash /home/josh/techmate-gdrive-backup/google-drive-backup.sh copy 
+
+# email summary on a saturday
+55 11 * * 6 bash /home/josh/techmate-gdrive-backup/email-composer.sh 
+
+MAILTO=josh@techmate.org.nz
+0 12 * * 6 /usr/sbin/ssmtp josh@techmate.org.nz < /home/josh/techmate-gdrive-backup/auto-email.txt 
