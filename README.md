@@ -24,8 +24,6 @@ There are two main BASH scripts that do the heavy lifting in the project current
 The `micro` text editor is installed for ease of use (standard microsoft shortcuts) but any editor can be used to edit scripts / text files e.g.
 
 `$ micro google-drive-backup.sh`  
-`$ nano google-drive-backup.sh`  
-etc.
 
 * * *
 
@@ -41,15 +39,15 @@ File(s) can be recovered from the backup by several methods (see below)
 
 * * *
 
-Installation and Configuration of Utilities
+### Installation and Configuration of Utilities
 
 [rclone](https://rclone.org)
 
-### Installation
+## Installation
 
 The version currently installed is from the Fedora Linux repository and was installed by running `sudo dnf install rclone`
 
-### Configuration
+## Configuration
 
 The setup of rclone with Google Drive is done by a simple wizard in the terminal: https://rclone.org/drive/
 
@@ -59,7 +57,7 @@ NB If the server is headless (currently true) then providing access with Google 
 
 and accessing the provided URL from a machine with a browser
 
-### Usage
+## Usage
 
 The two commands within the backup script employed are:
 
@@ -72,9 +70,9 @@ https://rclone.org
 
 * * *
 
-[cron](https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles/)
+### [cron](https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles/)
 
-Intallation: This utility is included as a standard program in GNU/Linux
+## Intallation: This utility is included as a standard program in GNU/Linux
 
 The scheduling “table” can be edited by running  
 `$ crontab -e`
@@ -88,17 +86,17 @@ https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles
 
 * * *
 
-[ssmtp](https://wiki.archlinux.org/title/SSMTP)
+### [ssmtp](https://wiki.archlinux.org/title/SSMTP)
 
 This utility is a very simple email server that can only send email. This avoids the configuration headaches associated with `postfix` or `sendmail`
 
 NB _This project is unmaintaned - may need replacing with alternative_  
 
-### Installation
+## Installation
 
 `$ sudo dnf install ssmtp`
 
-### Configuration
+## Configuration
 
 `ssmtp` allows you to send the automated email from you GMail with the correct authentication. However your regular password cannot be used.
  From May 2022 Google requires that you create an “App Password”:
