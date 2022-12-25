@@ -18,10 +18,6 @@ MAILTO=tristan@techmate.org.nz
 # copy every weekday at 8pm 
 0 20 * * 1,2,3,4,5 bash /home/josh/techmate-gdrive-backup/google-drive-backup.sh copy 
 
-
-#### sync (include deletions from master copy) once every 3 months or so 
-### 0 18 30 1,5,8,11 * bash /home/josh/techmate-gdrive-backup/google-drive-backup.sh sync 
-
 # email summary on a saturday
 55 11 * * 6 bash /home/josh/techmate-gdrive-backup/email-composer.sh 
 
