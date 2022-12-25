@@ -39,15 +39,15 @@ File(s) can be recovered from the backup by several methods (see below)
 
 * * *
 
-### Installation and Configuration of Utilities
+## Installation and Configuration of Utilities
 
 [rclone](https://rclone.org)
 
-## Installation
+### Installation
 
 The version currently installed is from the Fedora Linux repository and was installed by running `sudo dnf install rclone`
 
-## Configuration
+### Configuration
 
 The setup of rclone with Google Drive is done by a simple wizard in the terminal: https://rclone.org/drive/
 
@@ -57,7 +57,7 @@ NB If the server is headless (currently true) then providing access with Google 
 
 and accessing the provided URL from a machine with a browser
 
-## Usage
+### Usage
 
 The two commands within the backup script employed are:
 
@@ -70,9 +70,9 @@ https://rclone.org
 
 * * *
 
-### [cron](https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles/)
+## [cron](https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles/)
 
-## Intallation: This utility is included as a standard program in GNU/Linux
+### Installation: This utility is included as a standard program in GNU/Linux
 
 The scheduling “table” can be edited by running  
 `$ crontab -e`
@@ -86,17 +86,17 @@ https://docs.fedoraproject.org/en-US/packaging-guidelines/CronFiles
 
 * * *
 
-### [ssmtp](https://wiki.archlinux.org/title/SSMTP)
+## [ssmtp](https://wiki.archlinux.org/title/SSMTP)
 
 This utility is a very simple email server that can only send email. This avoids the configuration headaches associated with `postfix` or `sendmail`
 
 NB _This project is unmaintaned - may need replacing with alternative_  
 
-## Installation
+### Installation
 
 `$ sudo dnf install ssmtp`
 
-## Configuration
+### Configuration
 
 `ssmtp` allows you to send the automated email from you GMail with the correct authentication. However your regular password cannot be used.
  From May 2022 Google requires that you create an “App Password”:
@@ -136,7 +136,7 @@ Backup Recovery Options
 These instructions are specific to our tools in 2022 but can be applied more generally too.  
 Here are a few options:
 
-Quick and Elegant - copy over local network
+## Quick and Elegant - copy over local network
 
 Simply reverse SOURCE and DESTINATION order using rclone
 
@@ -146,7 +146,7 @@ Recover to Google-Drive \*need to test:
 Or to machine on local network \*need to test  
 `$ rclone copy --progress /home/josh/Google-Drive-Backup/ host:/<path-to-folder>`
 
-Quick and Dirty - Copy Backup to external HDD
+## Quick and Dirty - Copy Backup to external HDD
 
 1.  plug in “Big Red” external HDD drive
 2.  `ssh` into `/home/josh`  
@@ -160,7 +160,7 @@ Quick and Dirty - Copy Backup to external HDD
 6.  For extra safety  
     `$ sudo umount /dev/sdc1` before unplugging Big Red HDD
 
-Last Resort
+## Last Resort
 
 Shutdown server, unplug and remove internal HDD “WDC” brand to access via recovery rig. Filesystem is ext4 so easiest to access via Linux machine.
 
