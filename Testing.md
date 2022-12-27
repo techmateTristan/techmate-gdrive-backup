@@ -11,8 +11,8 @@ in the google-drive shared directory
 2. Allow the BACKUP-TEST directory to be backed in the usual scheduled cronjob
 3. Delete the BACKUP-TEST directory from the google-drive shared directory
 4. Attempt to restore the deleted BACKUP-TEST directory from `Google-Drive-Backup` to google drive
-5. Attempt same to a local  machine on network:
-6. Observe results noting restoration and reservation (or flattening) of structure
+5. Attempt same to a local  machine on network
+6. Observe results noting restoring and reserving (or flattening) of structure
 
 ### Commands
 BACKUP-TEST to google-drive:<br/><br/>
