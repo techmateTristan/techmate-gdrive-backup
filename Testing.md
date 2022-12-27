@@ -17,7 +17,7 @@ in the google-drive shared directory
 ### Commands
 BACKUP-TEST to google-drive:<br/><br/>
 ```$ rclone copy --progress /home/josh/Google-Drive-Backup/Techmate\ things./BACKUP-TEST/ google-drive```
-<br/>
+<br/><br/>
 BACKUP-TEST to local machine:<br/><br/>
 ```$ rclone copy --progress /home/josh/Google-Drive-Backup/Techmate\ things./BACKUP-TEST/ <host-ip>:/<path-to-folder>/```
 
