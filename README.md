@@ -156,7 +156,7 @@ Or to machine on local network
 4.  Mount drive:  
     `$ sudo mount /dev/sdc1 /home/josh/big-red-mountpoint`
 5.  copy drive contents over  
-    `$ rsync -arv --progress Google-Drive-Backup/* big-red-mountpoint`
+    `$ rsync -arv --progress Google-Drive-Backup/ big-red-mountpoint`
 6.  For extra safety  
     `$ sudo umount /dev/sdc1` before unplugging Big Red HDD
 
