@@ -1,7 +1,7 @@
 ## Testing restoration procedure
 
 To test the restoration procedure create a directory "BACKUP-TEST" and
-populate it with nested fire and directories, to see if files can
+populate it with nested empty files and directories, to see if files can
 be restored, and in addition if directory structure is preserved
 
 ###  Procedure
