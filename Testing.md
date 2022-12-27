@@ -10,11 +10,17 @@ be restored, and in addition if directory structure is preserved
 in the google-drive shared directory
 2. Allow the BACKUP-TEST directory to be backed in the usual scheduled cronjob
 3. Delete the BACKUP-TEST directory from the google-drive shared dirctory
-4. Attempt to restore the deleted BACKUP-TEST directory from back up by running:
-```	$ rclone copy --progress /home/josh/Google-Drive-Backup/BACKUP-TEST/ google-drive```
-5. Attempt same to local machine on network:
-```$ rclone copy --progress /home/josh/Google-Drive-Backup/BACKUP-TEST/ host:/<path-to-folder>```
+4. Attempt to restore the deleted BACKUP-TEST directory from `Google-Drive-Backup` to google drive
+5. Attempt same to a local  machine on network:
 6. Observe results noting restoration and reservation of structure
+
+### Commands
+BACKUP-TEST to google-drive
+```	$ rclone copy --progress /home/josh/Google-Drive-Backup/BACKUP-TEST/ google-drive```
+
+BACKUP-TEST to local machine
+```$ rclone copy --progress /home/josh/Google-Drive-Backup/BACKUP-TEST/ <host-ip>:/<path-to-folder>/```
+
 
 ### Test run
 - Date TBD
