@@ -15,10 +15,10 @@ in the google-drive shared directory
 6. Observe results noting restoration and reservation of structure
 
 ### Commands
-BACKUP-TEST to google-drive <br/><br/>
+BACKUP-TEST to google-drive:<br/><br/>
 ```$ rclone copy --progress /home/josh/Google-Drive-Backup/Techmate\ things./BACKUP-TEST/ google-drive```
-
-BACKUP-TEST to local machine <br/><br/>
+<br/>
+BACKUP-TEST to local machine:<br/><br/>
 ```$ rclone copy --progress /home/josh/Google-Drive-Backup/Techmate\ things./BACKUP-TEST/ <host-ip>:/<path-to-folder>/```
 
 
