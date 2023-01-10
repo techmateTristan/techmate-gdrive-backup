@@ -1,5 +1,5 @@
 #!/bin/bash
-# author tristan garside, tristan@techmate.org.nz
+# author tristan garside
 
 # rclone *sync* maintains destination (local backup) as exact copy of original,
 #  i.e deletes files if they are deleted from source (Google Drive) 
