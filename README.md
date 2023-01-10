@@ -107,7 +107,7 @@ The username and password need to be accessed from the config file at `/etc/ssmt
 
 `root=postmaster`  
 `mailhub=smtp.gmail.com:587`  
-`AuthUser=<example>@techmate.org.nz`  
+`AuthUser=<example>@<example.org>`  
 `AuthPass=<example's App password here>`  
 `UseTLS=Yes`  
 `UseSTARTTLS`  
