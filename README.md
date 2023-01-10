@@ -1,7 +1,7 @@
 Techmate Backup Guide 2022
 ==========================
 
-ceated by: Tristan Garside | tristan@techmate.org.nz  
+ceated by: Tristan Garside | tristan.garside@gmail.com  
 date: 19-08-2022
 
 * * *
