@@ -6,7 +6,6 @@
 # In contrast rclone *copy* retains all files in backup, including those 
 #  deleted in source dir. 
 
-
 # --progress option gives verbose feedback
 # SOURCE name is "google-drive" - is rclone name for remote (Google Drive) 
 # DESTINATION is local directory in User's home directory 
