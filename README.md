@@ -30,7 +30,7 @@ The [micro](https://micro-editor.github.io/) text editor is installed for ease o
 
 ### Use Case
 
-All files that are saved in Google-Drive (currently in Josh’s account) need to backed up to the on-site server to protect from accidental deletion / loss / corruption etc.
+All files that are saved in Google-Drive (currently in Operations Manager’s account) need to backed up to the on-site server to protect from accidental deletion / loss / corruption etc.
 
 An `rclone copy` of all the data is transferred daily at ascheduled time.
 
