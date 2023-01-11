@@ -21,7 +21,8 @@ There are two main BASH scripts that do the heavy lifting in the project current
 2.  `email-composer.sh`
     
 
-The `micro` text editor is installed for ease of use (standard microsoft shortcuts) but any editor can be used to edit scripts / text files e.g.
+The [micro](https://micro-editor.github.io/) text editor is installed for ease of use (standard microsoft shortcuts)
+ but any editor can be used to edit scripts / text files e.g.
 
 `$ micro google-drive-backup.sh`  
 
