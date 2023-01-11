@@ -9,12 +9,14 @@ TO="To: "$EMAIL_ADDR
 SUBJECT="Subject: Google-Drive Backup Logs"
 BODY="This is an Automated email\n\n"
 BODY+="Backup Logs for last 7 entries follows:\n"
-BODY+=$(cat $DIR_PATH/backup.log | tail -7)
+BODY+="$(cat $DIR_PATH/backup.log | tail -7)\n"
 # check if any errors thrown by rclone  
 if [ -s $DIR_PATH/error.log ]; then
-	BODY+="\n...\nError Log:\n"
+	BODY+="\n...\nError Log:\n\n"
 	BODY+=$(cat $DIR_PATH/error.log)
 else
-	BODY+="\n...\nrclone reports no errors\n"
+	BODY+="\n...\nrclone reports no errors\n\n"
 fi
+BODY+="Your thought for the day:\n"
+BODY+=$(fortune)
 echo -e "$TO\n$SUBJECT\n$BODY" > $DIR_PATH/auto-email.txt
