@@ -16,13 +16,13 @@
 # backup this table with $ crontab -l > crontab.bak
 # DON'T FORGET: remove email adresses in backup copy for github
 
-MAILTO=<daily notified user / maintainer email here>
+MAILTO=<admin email here>
 
 # copy every weekday at 8pm 
-00 20 * * 1,2,3,4,5 bash /home/josh/techmate-gdrive-backup/google-drive-backup.sh copy 
+00 20 * * 1,2,3,4,5 bash /home/josh/techmate-gdrive-backup/google-drive-backup.sh copy
 
 # email summary on a saturday
 55 11 * * 6 bash /home/josh/techmate-gdrive-backup/email-composer.sh 
 
-MAILTO=<weekly notified other user email here>
+MAILTO=<manager email here>
 0 12 * * 6 /usr/sbin/ssmtp josh@techmate.org.nz < /home/josh/techmate-gdrive-backup/auto-email.txt 
