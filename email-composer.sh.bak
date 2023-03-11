@@ -4,7 +4,8 @@
 #  to send an email
 DIR_PATH=/home/josh/techmate-gdrive-backup
 
-EMAIL_ADDR=$(./get-email.sh email_j)
+### EMAIL_ADDR=$(./get-email.sh email_j)
+EMAIL_ADDR="<insert address here>"
 TO="To: "$EMAIL_ADDR
 SUBJECT="Subject: Google-Drive Backup Logs"
 BODY="This is an Automated email\n\n"
