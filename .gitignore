@@ -2,4 +2,8 @@
 
 *.log
 *.txt
+
+# sensitive data: email addresses
+
 emails.list
+email-composer.sh
