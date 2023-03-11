@@ -1,7 +1,7 @@
 # not sensitive data, but metadata and not required
 
 *.log
-*.txt
+
 
 # sensitive data: email addresses
 
